@@ -1,49 +1,24 @@
-# Muhammad Zaid — Portfolio Website
+Full-Stack Dynamic Portfolio & Admin Dashboard
+A high-performance, responsive portfolio website integrated with a custom-built Admin CMS Dashboard. This project allows for real-time updates to professional details, projects, and skills without touching the code.
 
-Personal portfolio website showcasing my journey as an aspiring Data, Cloud & DevOps Engineer.
+🌟 Key Features
+Portfolio Frontend
+Dynamic Hero Section: Smooth animations with customizable text and CTAs.
 
-## Tech Stack
+Modern UI/UX: Dark-themed, glassmorphic design optimized for all devices.
 
-- **HTML5** — Semantic markup
-- **CSS3** — Custom properties, Flexbox, Grid, animations
-- **JavaScript** — Vanilla ES6+, IntersectionObserver, Fetch API
+Tech Stack Ticker: Showcasing expertise in Cloud, Data, and DevOps tools.
 
-## Quick Start
+Integrated Navigation: Smooth scrolling to About, Skills, Projects, and Experience sections.
 
-```bash
-# Option 1: Open directly
-open index.html
+Admin Dashboard
+Content Management System (CMS): Update any part of the site (Hero, Projects, Experience) via a secure interface.
 
-# Option 2: Local server
-npx serve .
-```
+Live Updates: Changes made in the dashboard reflect instantly on the portfolio.
 
-## Structure
+Data Export/Import: Features to backup or export configuration settings.
 
-```
-├── index.html          # Single-page application
-├── css/style.css       # All styles (dark theme, responsive)
-├── js/main.js          # Interactions & animations
-├── assets/images/      # Profile photo & assets
-└── context/            # Design references (PRD, inspo)
-```
+Secure Access: Admin-only login to prevent unauthorized content changes.
+<img width="1024" height="547" alt="image" src="https://github.com/user-attachments/assets/d625b448-e68c-437a-a114-a22666f70241" />
+<img width="1361" height="646" alt="image" src="https://github.com/user-attachments/assets/3e3810c4-127e-48a6-bc61-934cd96f7743" />
 
-## Features
-
-- Dark-themed, professional design
-- Smooth scroll navigation
-- Scroll-reveal animations
-- Responsive (mobile-first)
-- SEO & Open Graph meta tags
-- WCAG 2.1 accessible
-- Contact form via Formspree
-
-## Contact
-
-- **Email:** zaidahmed0317@gmail.com
-- **LinkedIn:** [Muhammad Zaid](https://www.linkedin.com/in/muhammadzaid17)
-- **GitHub:** [muhammad-zaid0](https://github.com/muhammad-zaid0)
-
----
-
-Built with ❤️ by Muhammad Zaid
