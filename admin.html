@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel — Muhammad Zaid Portfolio</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts (same as portfolio) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <!-- ===== LOGIN SCREEN ===== -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-card">
+            <div class="login-card__logo">
+                <span class="logo-bracket">&lt;</span>MZ<span class="logo-bracket"> /&gt;</span>
+            </div>
+            <h1 class="login-card__title">Admin Panel</h1>
+            <p class="login-card__subtitle">Enter your password to manage portfolio content</p>
+            <form class="login-card__form" id="loginForm">
+                <div class="input-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required
+                        autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Sign In</button>
+                <p class="login-error" id="loginError"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== ADMIN SHELL ===== -->
+    <div class="admin-shell" id="adminShell" style="display:none;">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__header">
+                <span class="sidebar__logo"><span class="logo-bracket">&lt;</span>MZ<span class="logo-bracket">
+                        /&gt;</span></span>
+                <span class="sidebar__badge">Admin</span>
+            </div>
+
+            <nav class="sidebar__nav">
+                <button class="sidebar__link active" data-panel="hero">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                    <span>Hero</span>
+                </button>
+                <button class="sidebar__link" data-panel="about">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <span>About</span>
+                </button>
+                <button class="sidebar__link" data-panel="skills">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    <span>Skills</span>
+                </button>
+                <button class="sidebar__link" data-panel="projects">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    <span>Projects</span>
+                </button>
+                <button class="sidebar__link" data-panel="experience">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                    </svg>
+                    <span>Experience</span>
+                </button>
+                <button class="sidebar__link" data-panel="education">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5" />
+                    </svg>
+                    <span>Education</span>
+                </button>
+                <button class="sidebar__link" data-panel="contact">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <span>Contact & Social</span>
+                </button>
+            </nav>
+
+            <div class="sidebar__footer">
+                <a href="index.html" target="_blank" class="btn btn--outline btn--sm btn--full">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                    View Portfolio
+                </a>
+                <button class="btn btn--ghost btn--sm btn--full" id="logoutBtn">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Mobile sidebar toggle -->
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+
+        <!-- Main Content Area -->
+        <main class="admin-main" id="adminMain">
+
+            <!-- Top bar -->
+            <header class="topbar">
+                <h2 class="topbar__title" id="panelTitle">Hero Section</h2>
+                <div class="topbar__actions">
+                    <button class="btn btn--primary btn--sm" id="saveAllBtn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                        </svg>
+                        Save Changes
+                    </button>
+                    <button class="btn btn--outline btn--sm" id="exportBtn" title="Export data as JSON">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Export
+                    </button>
+                </div>
+            </header>
+
+            <!-- Toast notification -->
+            <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+            <!-- ======== PANELS ======== -->
+
+            <!-- HERO PANEL -->
+            <section class="panel active" id="panel-hero">
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Hero Content</h3>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="heroGreeting">Greeting</label>
+                            <input type="text" id="heroGreeting" placeholder="Hello.">
+                        </div>
+                        <div class="input-group">
+                            <label for="heroName">Full Name</label>
+                            <input type="text" id="heroName" placeholder="Muhammad Zaid">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="heroTitle">Title / Role</label>
+                        <input type="text" id="heroTitle" placeholder="Data, Cloud & DevOps Engineer">
+                    </div>
+                    <div class="input-group">
+                        <label for="heroDescription">Short Description</label>
+                        <textarea id="heroDescription" rows="3"
+                            placeholder="I build cloud-ready data systems..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="heroCta1Text">Primary CTA Text</label>
+                            <input type="text" id="heroCta1Text" placeholder="View My Work">
+                        </div>
+                        <div class="input-group">
+                            <label for="heroCta1Link">Primary CTA Link</label>
+                            <input type="text" id="heroCta1Link" placeholder="#projects">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="heroCta2Text">Secondary CTA Text</label>
+                            <input type="text" id="heroCta2Text" placeholder="Contact Me">
+                        </div>
+                        <div class="input-group">
+                            <label for="heroCta2Link">Secondary CTA Link</label>
+                            <input type="text" id="heroCta2Link" placeholder="#contact">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Tech Ticker</h3>
+                    <p class="panel__hint">Comma-separated list of technologies shown in the scrolling ticker.</p>
+                    <div class="input-group">
+                        <label for="heroTicker">Technologies</label>
+                        <input type="text" id="heroTicker" placeholder="Linux, AWS, Docker, Snowflake, Python, SQL...">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT PANEL -->
+            <section class="panel" id="panel-about">
+                <div class="panel__card">
+                    <h3 class="panel__card-title">About Me Content</h3>
+                    <div class="input-group">
+                        <label for="aboutParagraph1">Paragraph 1</label>
+                        <textarea id="aboutParagraph1" rows="4"
+                            placeholder="I am an aspiring Data, Cloud & DevOps Engineer..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="aboutParagraph2">Paragraph 2</label>
+                        <textarea id="aboutParagraph2" rows="4"
+                            placeholder="My work revolves around building scalable cloud architectures..."></textarea>
+                    </div>
+                </div>
+
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Stat Cards</h3>
+                    <div id="aboutStatsContainer"></div>
+                    <button class="btn btn--outline btn--sm" id="addStatBtn" type="button">+ Add Stat Card</button>
+                </div>
+            </section>
+
+            <!-- SKILLS PANEL -->
+            <section class="panel" id="panel-skills">
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Skill Categories</h3>
+                    <p class="panel__hint">Each category has a name, icon, CSS class, and a comma-separated list of
+                        skills.</p>
+                    <div id="skillCategoriesContainer"></div>
+                    <button class="btn btn--outline btn--sm" id="addSkillCatBtn" type="button">+ Add Category</button>
+                </div>
+            </section>
+
+            <!-- PROJECTS PANEL -->
+            <section class="panel" id="panel-projects">
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Projects</h3>
+                    <div id="projectsContainer"></div>
+                    <button class="btn btn--outline btn--sm" id="addProjectBtn" type="button">+ Add Project</button>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE PANEL -->
+            <section class="panel" id="panel-experience">
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Work Experience</h3>
+                    <div id="experienceContainer"></div>
+                    <button class="btn btn--outline btn--sm" id="addExpBtn" type="button">+ Add Experience</button>
+                </div>
+            </section>
+
+            <!-- EDUCATION PANEL -->
+            <section class="panel" id="panel-education">
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Education</h3>
+                    <div id="educationContainer"></div>
+                    <button class="btn btn--outline btn--sm" id="addEduBtn" type="button">+ Add Education</button>
+                </div>
+
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Certifications</h3>
+                    <div id="certsContainer"></div>
+                    <button class="btn btn--outline btn--sm" id="addCertBtn" type="button">+ Add Certification</button>
+                </div>
+            </section>
+
+            <!-- CONTACT & SOCIAL PANEL -->
+            <section class="panel" id="panel-contact">
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Contact Section</h3>
+                    <div class="input-group">
+                        <label for="contactHeading">Heading</label>
+                        <input type="text" id="contactHeading" placeholder="Have a project? Let's talk!">
+                    </div>
+                    <div class="input-group">
+                        <label for="contactDescription">Description</label>
+                        <textarea id="contactDescription" rows="3"
+                            placeholder="Interested in working together?..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="contactEmail">Email Address</label>
+                        <input type="email" id="contactEmail" placeholder="zaidahmed0317@gmail.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="contactFormspree">Formspree Endpoint URL</label>
+                        <input type="text" id="contactFormspree" placeholder="https://formspree.io/f/your-id">
+                    </div>
+                </div>
+
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Social Links</h3>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="socialLinkedin">LinkedIn URL</label>
+                            <input type="url" id="socialLinkedin" placeholder="https://linkedin.com/in/...">
+                        </div>
+                        <div class="input-group">
+                            <label for="socialGithub">GitHub URL</label>
+                            <input type="url" id="socialGithub" placeholder="https://github.com/...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel__card">
+                    <h3 class="panel__card-title">Footer</h3>
+                    <div class="input-group">
+                        <label for="footerName">Display Name</label>
+                        <input type="text" id="footerName" placeholder="Muhammad Zaid">
+                    </div>
+                    <div class="input-group">
+                        <label for="footerCopy">Copyright Text</label>
+                        <input type="text" id="footerCopy" placeholder="Built with ❤️ by Muhammad Zaid © 2025">
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
